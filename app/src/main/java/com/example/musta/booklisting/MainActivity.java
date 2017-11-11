@@ -27,11 +27,11 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    TextView totalItem;
-    ImageButton searchIcon;
-    EditText search;
-    ListView listView;
-    FrameLayout frameLayout;
+    private TextView totalItem;
+    private ImageButton searchIcon;
+    private EditText search;
+    private ListView listView;
+    private FrameLayout frameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void updateUI(String s) {
+    private void updateUI(String s) {
 
         try {
 
@@ -148,7 +148,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    class SearchAsyncTask extends AsyncTask<String, Void, String> {
+    private class SearchAsyncTask extends AsyncTask<String, Void, String> {
 
         @Override
         protected String doInBackground(String... strings) {

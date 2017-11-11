@@ -6,7 +6,7 @@ import java.util.ArrayList;
  * Created by mustafa on 11/09/17.
  */
 
-public class Books {
+class Books {
 
 
     private String title;

@@ -16,11 +16,11 @@ import java.util.ArrayList;
  * Created by Mustafa on 11/09/17.
  */
 
-public class SearchAdapter extends ArrayAdapter<Books> {
+class SearchAdapter extends ArrayAdapter<Books> {
 
-    private Context context;
-    private int resources;
-    private ArrayList<Books> BooksArray;
+    private final Context context;
+    private final int resources;
+    private final ArrayList<Books> BooksArray;
 
     public SearchAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Books> objects) {
         super(context, resource, objects);
