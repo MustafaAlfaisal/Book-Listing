@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Book Listing</string>
+    <string name="Books_App">Books App</string>
+    <string name="n_please_enter_a_correct_title">Please enter a correct title!</string>
+    <string name="enter_title">Enter title</string>
+    <string name="No_Internet">No Internet</string>
+    <string name="Books">Books</string>
+    <string name="No_Books_Found">0 books found</string>
+    <string name="No_title">No Title</string>
+    <string name="No_publisher">No Publisher</string>
+</resources>
