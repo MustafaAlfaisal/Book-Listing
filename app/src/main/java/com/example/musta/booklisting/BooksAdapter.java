@@ -16,21 +16,20 @@ import java.util.ArrayList;
  * Created by Mustafa on 11/09/17.
  */
 
-class SearchAdapter extends ArrayAdapter<Books> {
+public class BooksAdapter extends ArrayAdapter<Books> {
 
-    private final Context context;
-    private final int resources;
-    private final ArrayList<Books> BooksArray;
+    private Context context;
+    private int resources;
+    private ArrayList<Books> booksArrayList;
 
-    public SearchAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Books> objects) {
+    public BooksAdapter(@NonNull Context context, @LayoutRes int resource, @NonNull ArrayList<Books> objects) {
         super(context, resource, objects);
 
         this.context = context;
         this.resources = resource;
-        this.BooksArray = objects;
+        this.booksArrayList = objects;
 
     }
-
 
     @NonNull
     @Override
@@ -43,13 +42,11 @@ class SearchAdapter extends ArrayAdapter<Books> {
         }
 
 
-        Books book = BooksArray.get(position);
-
+        Books book = booksArrayList.get(position);
 
         TextView title = (TextView) convertView.findViewById(R.id.title);
         TextView publisher = (TextView) convertView.findViewById(R.id.publisher);
         TextView authors = (TextView) convertView.findViewById(R.id.author);
-
 
         title.setText(String.valueOf(book.getTitle()));
         publisher.setText(String.valueOf(book.getPublisher()));

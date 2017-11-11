@@ -38,11 +38,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        totalItem = (TextView) findViewById(R.id.totalItems);
+        totalItem = (TextView) findViewById(R.id.total_items);
         search = (EditText) findViewById(R.id.searchInput);
         searchIcon = (ImageButton) findViewById(R.id.searchIcon);
         listView = (ListView) findViewById(R.id.list_view);
-        frameLayout = (FrameLayout) findViewById(R.id.framlayout);
+        frameLayout = (FrameLayout) findViewById(R.id.frame_layout);
 
         searchIcon.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 listView.setVisibility(View.VISIBLE);
                 frameLayout.setVisibility(View.GONE);
                 JSONArray items = root.getJSONArray("items");
-                final ArrayList<Books> booksArray = new ArrayList<Books>();
+                final ArrayList<Books> booksArray = new ArrayList<>();
 
 
                 for (int i = 0; i < items.length(); i++) {
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity {
                                 title = getString(R.string.No_title);
 
 
-                            ArrayList<String> authorss = new ArrayList<>();
+                            ArrayList<String> authorses = new ArrayList<>();
                             if (volumeInfo.has("authors")) {
 
                                 authors = volumeInfo.getJSONArray("authors");
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
                                     String author = authors.getString(a);
 
-                                    authorss.add(author);
+                                    authorses.add(author);
 
 
                                 }
@@ -124,8 +124,8 @@ public class MainActivity extends AppCompatActivity {
                             else
                                 publisher = getString(R.string.No_publisher);
 
-                            Books bookk = new Books(title, publisher, authorss);
-                            booksArray.add(bookk);
+                            Books book = new Books(title, publisher, authorses);
+                            booksArray.add(book);
 
 
                         }
@@ -134,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                 totalItem.setText(String.valueOf(totalItems) + getString(R.string.Books));
-                SearchAdapter adapter = new SearchAdapter(this, R.layout.search_result, booksArray);
+                BooksAdapter adapter = new BooksAdapter(this, R.layout.search_result, booksArray);
                 listView.setAdapter(adapter);
 
 
@@ -204,7 +204,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String s) {
-
 
             if (s != null && !s.isEmpty()) {
 
